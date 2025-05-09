@@ -66,6 +66,14 @@ public class PontoDeColetaService {
         repository.deleteById(id);
     }
 
+    public List<PontoDeColetaResponseDTO> findByTipoMaterialContaining(String material) {
+        return repository.findAll().stream()
+                .filter(ponto -> ponto.getMateriais().stream()
+                        .anyMatch(m -> m.getTipoMaterial().toLowerCase().contains(material.toLowerCase())))
+                .map(this::toResponseDTO)
+                .collect(Collectors.toList());
+    }
+
     // Método auxiliar para montar o DTO de resposta
     private PontoDeColetaResponseDTO toResponseDTO(PontoDeColeta ponto) {
         PontoDeColetaResponseDTO dto = new PontoDeColetaResponseDTO();

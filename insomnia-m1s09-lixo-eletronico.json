@@ -1,0 +1,244 @@
+{
+  "info": {
+    "name": "M1S09 - Pontos de Coleta e Lixo Eletronico",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Criar ponto de coleta",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Ponto Central\",\n  \"endereco\": \"Rua das \\arvores, 123\",\n  \"diaDeColeta\": \"Segunda-feira\",\n  \"materiais\": [\n    {\n      \"tipoMaterial\": \"Celular\",\n      \"capacidadeMaxima\": 5\n    },\n    {\n      \"tipoMaterial\": \"Notebook\",\n      \"capacidadeMaxima\": 3\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/collection-points",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "collection-points"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar todos os pontos de coleta",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/collection-points",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "collection-points"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Buscar ponto por ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/collection-points/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "collection-points",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Atualizar ponto de coleta",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Ponto Atualizado\",\n  \"endereco\": \"Rua Nova, 456\",\n  \"diaDeColeta\": \"Terca-feira\",\n  \"materiais\": [\n    {\n      \"tipoMaterial\": \"Tablet\",\n      \"capacidadeMaxima\": 4\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/collection-points/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "collection-points",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Deletar ponto de coleta",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8080/collection-points/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "collection-points",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Criar lixo eletronico",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"tipo\": \"Celular\",\n  \"descricao\": \"Aparelho antigo\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/electronic-waste",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "electronic-waste"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Buscar todos os lixos eletronicos",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/electronic-waste",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "electronic-waste"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Buscar lixo eletronico por ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/electronic-waste/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "electronic-waste",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Atualizar lixo eletronico",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"tipo\": \"Notebook\",\n  \"descricao\": \"Atualizado\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/electronic-waste/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "electronic-waste",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Deletar lixo eletronico",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8080/electronic-waste/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "electronic-waste",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Buscar pontos por nome do lixo eletronico (Ex: celular)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/collection-points/electronic-waste/name/celular",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "collection-points",
+            "electronic-waste",
+            "name",
+            "celular"
+          ]
+        }
+      }
+    }
+  ]
+}

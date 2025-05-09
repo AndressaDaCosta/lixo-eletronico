@@ -42,4 +42,9 @@ public class PontoDeColetaController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/electronic-waste/name/{name}")
+    public ResponseEntity<List<PontoDeColetaResponseDTO>> getByElectronicWasteName(@PathVariable String name) {
+        return ResponseEntity.ok(service.findByTipoMaterialContaining(name));
+    }
 }
