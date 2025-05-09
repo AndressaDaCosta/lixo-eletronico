@@ -1,5 +1,7 @@
 package com.projeto.lixo.eletronico.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -10,45 +12,24 @@ public class MateriaisPontoColeta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "ponto_de_coleta_id")
-    private PontoDeColeta pontoDeColeta;
-
-    @ManyToOne
-    @JoinColumn(name = "lixo_eletronico_id")
-    private LixoEletronico lixoEletronico;
-
+    private String tipoMaterial;
     private Integer capacidadeMaxima;
 
-    // Constructors
-    public MateriaisPontoColeta() {
-    }
+    @ManyToOne
+    @JoinColumn(name = "ponto_de_coleta_id")
+    @JsonBackReference
+    private PontoDeColeta pontoDeColeta;
 
-    public MateriaisPontoColeta(PontoDeColeta ponto, LixoEletronico lixo, Integer capacidade) {
-        this.pontoDeColeta = ponto;
-        this.lixoEletronico = lixo;
-        this.capacidadeMaxima = capacidade;
-    }
-
-    // Getters and Setters
     public Long getId() {
         return id;
     }
 
-    public PontoDeColeta getPontoDeColeta() {
-        return pontoDeColeta;
+    public String getTipoMaterial() {
+        return tipoMaterial;
     }
 
-    public void setPontoDeColeta(PontoDeColeta pontoDeColeta) {
-        this.pontoDeColeta = pontoDeColeta;
-    }
-
-    public LixoEletronico getLixoEletronico() {
-        return lixoEletronico;
-    }
-
-    public void setLixoEletronico(LixoEletronico lixoEletronico) {
-        this.lixoEletronico = lixoEletronico;
+    public void setTipoMaterial(String tipoMaterial) {
+        this.tipoMaterial = tipoMaterial;
     }
 
     public Integer getCapacidadeMaxima() {
@@ -57,5 +38,13 @@ public class MateriaisPontoColeta {
 
     public void setCapacidadeMaxima(Integer capacidadeMaxima) {
         this.capacidadeMaxima = capacidadeMaxima;
+    }
+
+    public PontoDeColeta getPontoDeColeta() {
+        return pontoDeColeta;
+    }
+
+    public void setPontoDeColeta(PontoDeColeta pontoDeColeta) {
+        this.pontoDeColeta = pontoDeColeta;
     }
 }

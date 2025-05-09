@@ -1,7 +1,6 @@
 package com.projeto.lixo.eletronico.model;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,17 +19,6 @@ public class PontoDeColeta {
     @OneToMany(mappedBy = "pontoDeColeta", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MateriaisPontoColeta> materiais = new ArrayList<>();
 
-    // Constructors
-    public PontoDeColeta() {
-    }
-
-    public PontoDeColeta(String nome, String endereco, String diaDeColeta) {
-        this.nome = nome;
-        this.endereco = endereco;
-        this.diaDeColeta = diaDeColeta;
-    }
-
-    // Getters and Setters
     public Long getId() {
         return id;
     }
